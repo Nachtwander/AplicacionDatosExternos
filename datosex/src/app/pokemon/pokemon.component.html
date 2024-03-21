@@ -1,0 +1,16 @@
+<div *ngIf="cargando">
+<p>Cargando detalles del pokemon...</p>
+</div>
+
+<a *ngIf="pokemonResult && !cargando"  href="{{pokemonResult.url}}">
+<div *ngIf="pokemon">
+    <h3>{{pokemon.id}} - {{pokemon.name}}</h3>
+    <p>Altura: {{pokemon.height}}</p>
+    
+    <p>Peso: {{pokemon.weight}}</p>
+    
+    <img src={{pokemon.sprite.front_default}}>
+    
+</div>
+
+</a>

@@ -1,0 +1,23 @@
+<label for="cantidad">Cantidad:</label>
+<input id="cantidad" type="number" [(ngModel)]="cantidad"/>
+<button (click)="cargarPokemon()"> Buscar </button>
+
+
+<div *ngIf="cargando">
+    <p>Cargando...</p>
+</div>
+<div *ngIf="pokemon && !cargando">
+    <div *ngIf="pokemon.results.length > 0">
+        <app-pokemon *ngFor="let pokemon of pokemon?.results" [pokemonResult]="pokemon"></app-pokemon>
+    </div>
+    <div *ngIf="pokemon.results.length == 0">
+        <p>No se encontraron resultados</p>
+    </div>
+    
+</div>
+<div *ngIf="!pokemon">
+    <p>Ocurrio un error al obtener los datos.</p>
+</div>
+
+
+
